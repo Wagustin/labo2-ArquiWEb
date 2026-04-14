@@ -17,14 +17,16 @@ public class ProveedorController {
     public ProveedorDTO insertar(@RequestBody ProveedorDTO proveedorDTO){
         return proveedorService.insertar(proveedorDTO);
     }
-    @GetMapping("/proveedores")
+    @GetMapping("/proveedores") //ednpoint
     public List<Proveedor> listarProveedores(){
+
         return proveedorService.listarProveedores();
     }
 
     @DeleteMapping("/proveedor/{id}")
     public void eliminar(@PathVariable Long id)
     {
+
         proveedorService.eliminar(id);
     }
 }
