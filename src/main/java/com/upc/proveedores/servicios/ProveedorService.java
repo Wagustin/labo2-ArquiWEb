@@ -1,8 +1,10 @@
 package com.upc.proveedores.servicios;
 
+import com.upc.proveedores.ProveedoresApplication;
 import com.upc.proveedores.dtos.ProveedorDTO;
 import com.upc.proveedores.entidades.Proveedor;
 import com.upc.proveedores.repositorios.ProveedorRepositorio;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,13 @@ public class ProveedorService {
     @Autowired
     private ProveedorRepositorio proveedorRepositorio;
 
+    private ModelMapper modelMapper;
+
     public Proveedor insertar(ProveedorDTO proveedorDTO){
         //convertir DTO a Entidad
-        return proveedorRepositorio.save(proveedor);
+        Proveedor proveedor = modelMapper.map(proveedorDTO, Proveedor.class);
+        proveedor = proveedorRepositorio.save(proveedor);
+        return modelMapper.map(proveedor, ProveedorDTO.class);
     }
 
     public List<Proveedor> listarProveedores(){
