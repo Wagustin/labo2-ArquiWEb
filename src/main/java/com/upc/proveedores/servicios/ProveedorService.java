@@ -1,5 +1,6 @@
 package com.upc.proveedores.servicios;
 
+import com.upc.proveedores.dtos.ProveedorDTO;
 import com.upc.proveedores.entidades.Proveedor;
 import com.upc.proveedores.repositorios.ProveedorRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,13 @@ public class ProveedorService {
     @Autowired
     private ProveedorRepositorio proveedorRepositorio;
 
-    public Proveedor insertar(Proveedor proveedor){
+    public Proveedor insertar(ProveedorDTO proveedorDTO){
+        //convertir DTO a Entidad
         return proveedorRepositorio.save(proveedor);
     }
 
     public List<Proveedor> listarProveedores(){
+
         return proveedorRepositorio.findAll();
     }
 
