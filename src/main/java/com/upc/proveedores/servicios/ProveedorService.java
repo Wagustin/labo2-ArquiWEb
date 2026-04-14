@@ -24,9 +24,10 @@ public class ProveedorService {
         return modelMapper.map(proveedor, ProveedorDTO.class);
     }
 
-    public List<Proveedor> listarProveedores(){
+    public List<ProveedorDTO> listarProveedores(){
 
-        return proveedorRepositorio.findAll();
+        return proveedorRepositorio.findAll().stream()
+                .map(proveedor -> modelMapper.map(proveedor, ProveedorDTO.class)).toList();
     }
 
     public void eliminar(Long id){
