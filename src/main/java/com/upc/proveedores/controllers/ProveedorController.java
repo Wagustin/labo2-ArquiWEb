@@ -38,11 +38,11 @@ public class ProveedorController {
 
         proveedorService.eliminar(id);
     }
-    public ProveedorDTO buscarPorId(Long id)
+    @GetMapping("/proveedor/{id}")
+    public ProveedorDTO buscarPorId(@PathVariable Long id)
     {
-        return modelMapper.map(proveedorRepositorio.findById(id), ProveedorDTO.class);
+        return proveedorService.buscarPorId(id);
     }
 
-    @GetMapping("/proveedor/{id}")
-    
+
 }
