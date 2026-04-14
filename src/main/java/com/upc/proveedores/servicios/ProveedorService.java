@@ -17,7 +17,7 @@ public class ProveedorService {
 
     private ModelMapper modelMapper;
 
-    public Proveedor insertar(ProveedorDTO proveedorDTO){
+    public ProveedorDTO insertar(ProveedorDTO proveedorDTO){
         //convertir DTO a Entidad
         Proveedor proveedor = modelMapper.map(proveedorDTO, Proveedor.class);
         proveedor = proveedorRepositorio.save(proveedor);
