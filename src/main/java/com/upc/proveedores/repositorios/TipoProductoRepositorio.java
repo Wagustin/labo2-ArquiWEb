@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TipoProductoRepositorio extends JpaRepository<TipoProducto, Long> {
+    //listar nombre y tipo de producto
+
+
+
 }
