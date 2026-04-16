@@ -40,6 +40,8 @@ public class ProveedorService {
 
     public ProveedorDTO buscarPorId(Long id)
     {
-        return modelMapper.map(proveedorRepositorio.findById(id).get(), ProveedorDTO.class);
+        return proveedorRepositorio.findById(id)
+                .map(proveedor -> modelMapper.map(proveedor, ProveedorDTO.class))
+                .orElse(null); // Or you could throw a custom exception
     }
 }
