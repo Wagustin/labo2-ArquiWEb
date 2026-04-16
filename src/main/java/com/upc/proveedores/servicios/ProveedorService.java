@@ -1,6 +1,5 @@
 package com.upc.proveedores.servicios;
 
-import com.upc.proveedores.ProveedoresApplication;
 import com.upc.proveedores.dtos.ProveedorDTO;
 import com.upc.proveedores.entidades.Proveedor;
 import com.upc.proveedores.repositorios.ProveedorRepositorio;
